@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Morph: Free File Converter for Mac, Windows, iPhone and Android</title>
+<meta name="description" content="Free file converter: HEIC to JPG, JPG to PDF, MP4 to MP3, PNG to SVG, MOV to MP4, or compress a photo to 200 KB. Works offline; files never leave your device.">
+<meta property="og:title" content="Morph: Free File Converter for Mac, Windows, iPhone and Android">
+<meta property="og:description" content="Drag a file, tap a key, drop it on the wheel. Free, local file conversion for Mac, Windows, iPhone and Android.">
+<meta property="og:image" content="https://morph.geetanshgoyal.in/images/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Morph's convert wheel beside the words: Convert any file without uploading it.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Morph">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:url" content="https://morph.geetanshgoyal.in/">
+<link rel="canonical" href="https://morph.geetanshgoyal.in/">
+<meta name="theme-color" content="#0B6E69">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Morph",
+  "alternateName": "Morph: File Converter",
+  "description": "Free file converter: HEIC to JPG, JPG to PDF, MP4 to MP3, PNG to SVG, MOV to MP4, or compress a photo to 200 KB. Works offline; files never leave your device.",
+  "url": "https://morph.geetanshgoyal.in/",
+  "image": "https://morph.geetanshgoyal.in/images/og-card.png",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "macOS 14 or later, Windows 10 or later, iOS 17 or later, Android 10 or later",
+  "downloadUrl": [
+    "https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg",
+    "https://apps.microsoft.com/detail/9PHWJVRC85DW"
+  ],
+  "featureList": [
+    "HEIC to JPG", "JPG to PDF and PDF to JPG", "Merge and split PDFs", "Word to PDF", "MP4 to MP3 and M4A",
+    "MOV to MP4", "Video to GIF", "PNG to SVG and SVG to PNG", "WEBP to JPG and PNG", "Compress images to 200 KB, 100 KB, 50 KB or 20 KB",
+    "Remove EXIF and location data", "Image to text (OCR)", "QR code reader", "Zip and unzip"
+  ],
+  "softwareVersion": "1.0.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "isAccessibleForFree": true,
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Geetansh Goyal"
+  },
+  "sameAs": [
+    "https://github.com/geetxnshgoyal/morph",
+    "https://apps.microsoft.com/detail/9PHWJVRC85DW"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I convert HEIC photos to JPG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Open the photo in Morph and choose JPG. On a Mac or Windows PC, start dragging the photo and tap Shift: the Convert wheel opens under your cursor, and the JPG lands beside the original. On iPhone and Android, share the photo to Morph or pick it in the app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I compress a photo to 200 KB, 100 KB or 50 KB?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set a size limit in Morph's Settings, from 20 KB to 5 MB or any size you type, then use Compress. Morph makes a JPG under the limit at the best quality that fits, which is what exam forms and job portals ask for."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can Morph convert PNG to SVG, or SVG to PNG?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, both ways. Any image can be traced into a real vector SVG, which works best for logos, icons and simple drawings, and an SVG can be turned into PNG, JPG, WEBP or PDF at a sharp size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Morph upload my files?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Every conversion runs on your own device, and the apps make no network requests. There are no accounts, no ads and no tracking, and your originals are never changed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Morph free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Morph is free on every platform and open source under the MIT license, with nothing to unlock."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which devices does Morph run on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mac (macOS 14 or later), Windows 10 and 11, iPhone and iPad (iOS 17 or later) and Android 10 or later."
+      }
+    }
+  ]
+}
+</script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/css/stage.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Teal Ink on cool paper, the same tokens as the apps' Theme. */
+    --ink: #121A19;
+    --ink-soft: #4F5957;
+    --paper: #F1F4F3;
+    --line: #DCE3E1;
+    --brand: #0B6E69;
+    --brand-deep: #08524E;
+    --brand-light: #4FC1B9;
+    --night: #0E1414;
+    --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+    --body: "Figtree", system-ui, -apple-system, sans-serif;
+    --measure: 34rem;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 1.0625rem/1.6 var(--body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; border-radius: 8px; }
+
+  .wrap { width: min(1160px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* Top bar */
+  .bar { display: flex; align-items: center; justify-content: space-between; padding: 1.4rem 0; }
+  .brand { display: flex; align-items: center; gap: .65rem; font: 700 1.35rem/1 var(--display); text-decoration: none; }
+  .brand svg { width: 34px; height: 34px; }
+  .bar nav { display: flex; gap: 1.6rem; font-weight: 600; font-size: .95rem; }
+  .bar nav a { text-decoration: none; color: var(--ink-soft); }
+  .bar nav a:hover { color: var(--ink); }
+
+  /* Hero */
+  .hero { padding: 3rem 0 4.5rem; }
+  .hero-top { display: grid; grid-template-columns: 1.15fr 1fr; gap: 3.5rem; align-items: start; }
+  @media (max-width: 900px) {
+    .hero-top { grid-template-columns: 1fr; gap: 2rem; }
+  }
+  h1 {
+    font: 750 clamp(2.9rem, 6.2vw, 5.4rem)/0.98 var(--display);
+    font-variation-settings: "wdth" 82, "opsz" 96;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-wrap: balance;
+    animation: unsquish 1.2s cubic-bezier(.2, .8, .2, 1) both;
+  }
+  @keyframes unsquish {
+    from { font-variation-settings: "wdth" 100, "opsz" 96; opacity: 0; }
+    to { font-variation-settings: "wdth" 82, "opsz" 96; opacity: 1; }
+  }
+  .lede, .lead { text-wrap: pretty; }
+  .lede { font-size: 1.25rem; color: var(--ink-soft); max-width: var(--measure); margin: 0 0 1.8rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; }
+  .cta .button.quiet { padding-inline: 1.15rem; }
+  .button {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: .95rem 1.5rem; border-radius: 999px;
+    font: 650 1rem/1 var(--body); text-decoration: none;
+    transition: transform .18s cubic-bezier(.2, .9, .2, 1), box-shadow .18s ease;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .button.primary { color: white; background: var(--brand); box-shadow: 0 4px 14px rgba(11, 110, 105, 0.25); }
+  .button.primary:hover { background: var(--brand-deep); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(11, 110, 105, 0.35); }
+  .button.quiet { color: var(--ink); background: white; border: 1px solid var(--line); }
+  .button.quiet:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .button:active {
+    transform: scale(0.97) !important;
+    transition: transform 90ms ease-out !important;
+  }
+  .fineprint { font-size: .88rem; color: var(--ink-soft); margin-top: 1rem; }
+
+  /* Sections */
+  section { padding: 5.5rem 0; }
+  h2 {
+    font: 720 clamp(2.1rem, 4vw, 3.3rem)/1.04 var(--display);
+    font-variation-settings: "wdth" 88, "opsz" 72;
+    letter-spacing: -0.015em; margin: 0 0 1.1rem; max-width: 18ch;
+    text-wrap: balance;
+  }
+  .lead { color: var(--ink-soft); font-size: 1.15rem; max-width: var(--measure); margin: 0; }
+  .split { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 3.5rem; align-items: center; }
+  .split > * { min-width: 0; }
+  .shot { border-radius: 28px; overflow: hidden; box-shadow: 0 30px 70px -30px rgba(10, 40, 38, .4); }
+  .mac-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: start; }
+  .mac-pair .shot:last-child { margin-top: 3.5rem; }
+  .points { list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.1rem; max-width: var(--measure); }
+  .points li { display: grid; grid-template-columns: auto 1fr; gap: .9rem; align-items: baseline; }
+  .points kbd {
+    min-width: 2.4rem; text-align: center; padding: .35rem .5rem; border-radius: 9px;
+    background: white; border: 1px solid var(--line); box-shadow: 0 3px 0 var(--line);
+    font: 700 1rem/1 var(--body);
+  }
+  .points strong { font-weight: 650; }
+
+  .phone-band { background: var(--night); color: white; border-radius: 44px; padding: 5rem 0; margin: 2rem auto; width: min(1240px, 100% - 1.5rem); position: relative; overflow: hidden; }
+  .phone-band .lead { color: #B9C6C3; }
+  .phones { display: flex; gap: 1.2rem; justify-content: center; align-items: flex-end; position: relative; }
+  .phones img { width: 31%; min-width: 0; border-radius: 34px; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6); }
+  .phones img:nth-child(2) { width: 34%; transform: translateY(-1.5rem); }
+  .shortcuts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1.4rem; margin: 2rem 0 0; padding: 0; list-style: none; max-width: var(--measure); }
+  .shortcuts li { padding-left: 1.1rem; position: relative; color: #E6EEEC; }
+  .shortcuts li::before { content: ""; position: absolute; left: 0; top: .62em; width: .45rem; height: .45rem; border-radius: 50%; background: var(--brand-light); }
+  .siri { margin-top: 1.8rem; font-family: var(--display); font-size: 1.35rem; font-variation-settings: "wdth" 90; color: white; max-width: var(--measure); }
+
+  .wheels { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.4rem; margin-top: 3rem; }
+  .wheels h3 { font: 700 1.3rem/1.2 var(--display); margin: 0 0 .9rem; display: flex; align-items: center; gap: .6rem; }
+  .wheels h3 kbd { font: 700 .95rem/1 var(--body); color: white; background: var(--brand); border-radius: 8px; padding: .3rem .5rem; }
+  .wheels ul { margin: 0; padding: 0; list-style: none; color: var(--ink-soft); display: grid; gap: .45rem; }
+
+  .promise { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; margin-top: 2.5rem; }
+  .promise p { margin: .4rem 0 0; color: var(--ink-soft); }
+  .promise h3 { font: 700 1.25rem/1.2 var(--display); margin: 0; }
+
+  .faq { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 3rem; margin-top: 2.5rem; }
+  .faq h3 { font: 700 1.2rem/1.25 var(--display); margin: 0; text-wrap: balance; }
+  .faq p { margin: .45rem 0 0; color: var(--ink-soft); max-width: var(--measure); }
+
+  .download { text-align: left; }
+  .conversions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.6rem; }
+  .conversions a {
+    padding: .6rem 1.1rem; border-radius: 999px; background: white;
+    border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 600;
+    transition: transform .18s cubic-bezier(.2, .9, .2, 1), border-color .18s ease, color .18s ease;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .conversions a:hover { border-color: var(--brand); color: var(--brand); transform: translateY(-1px); }
+  .conversions a:active { transform: scale(0.96); transition: transform 90ms ease-out; }
+  .platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; margin-top: 2.5rem; }
+  .platform { border-radius: 26px; padding: 1.8rem; background: white; border: 1px solid var(--line); display: grid; gap: .6rem; align-content: start; }
+  .platform.mac { background: var(--brand); color: white; border: 0; }
+  .platform h3 { font: 720 1.6rem/1.1 var(--display); margin: 0; }
+  .platform p { margin: 0; }
+  .platform.mac p { color: rgba(255, 255, 255, .9); }
+  .platform:not(.mac) p { color: var(--ink-soft); }
+  .platform .button { justify-self: start; margin-top: .6rem; }
+  .platform .fine { font-size: .88rem; }
+  .platform.mac .button { background: white; color: var(--ink); }
+  pre {
+    margin: 2.8rem 0 0; padding: 1.5rem 1.7rem; border-radius: 22px; overflow-x: auto;
+    background: var(--night); color: #E6EEEC; font: 500 .92rem/1.7 ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  pre .c { color: #8FA19D; }
+
+  footer { padding: 3rem 0 4rem; color: var(--ink-soft); font-size: .92rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  footer nav { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+
+  @media (max-width: 900px) {
+    .hero, .split { grid-template-columns: minmax(0, 1fr); }
+    .hero { padding-top: 1.5rem; gap: 2.5rem; }
+    .wheels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .promise, .platforms, .faq { grid-template-columns: 1fr; }
+    .bar nav { display: none; }
+    .phone-band { border-radius: 30px; padding: 3.5rem 0; }
+    .split .shots-first { order: -1; }
+  }
+  @media (max-width: 520px) {
+    .keys { display: grid; grid-template-columns: 1fr 1fr; border-radius: 26px; width: 100%; }
+    .key { justify-content: center; }
+    .wheels { grid-template-columns: 1fr; }
+    .shortcuts { grid-template-columns: 1fr; }
+    .mac-pair { grid-template-columns: 1fr; }
+    .mac-pair .shot:last-child { margin-top: 0; }
+    .phones { gap: .5rem; }
+    .phones img { border-radius: 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    h1, .bloom { animation: none; }
+    .petal .face { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="#">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="16" fill="#0B6E69"/><g fill="#fff"><circle cx="32" cy="32" r="6"/><circle cx="32" cy="17" r="6"/><circle cx="32" cy="47" r="6"/><circle cx="19" cy="24.5" r="6"/><circle cx="45" cy="24.5" r="6"/><circle cx="19" cy="39.5" r="6"/><circle cx="45" cy="39.5" r="6"/></g></svg>
+      Morph
+    </a>
+    <nav aria-label="Sections">
+      <a href="#mac">Mac</a>
+      <a href="#windows">Windows</a>
+      <a href="#iphone">iPhone</a>
+      <a href="#wheels">What it does</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>Drag a file, tap a key, drop it on the wheel.</h1>
+        </div>
+        <div>
+          <p class="lede">Morph converts, shrinks and cleans up files right where they are, on your Mac, Windows PC, iPhone and Android. It's free, and nothing is ever uploaded.</p>
+          <div class="cta">
+            <a class="button primary" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download for Mac</a>
+            <a class="button quiet" href="https://apps.microsoft.com/detail/9PHWJVRC85DW">Windows</a>
+            <a class="button quiet" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">iPhone</a>
+            <a class="button quiet" href="android.html">Android</a>
+          </div>
+          <p class="fineprint">macOS 14 or later, Windows 10 &amp; 11, iOS 17+, Android 10+. Free and open source.</p>
+        </div>
+      </div>
+
+      <div class="stage" data-stage tabindex="-1" aria-label="Try the wheel: a Downloads folder with sample files">
+        <div class="menubar" aria-hidden="true">
+          <span class="menubar-app">Finder</span><span>File</span><span>Edit</span><span>View</span><span>Go</span><span>Window</span>
+          <span class="menubar-right">
+            <svg class="mark menubar-mark" viewBox="0 0 64 64"><g fill="currentColor"><circle cx="32" cy="32" r="6"/><circle cx="32" cy="17" r="6"/><circle cx="32" cy="47" r="6"/><circle cx="19" cy="24.5" r="6"/><circle cx="45" cy="24.5" r="6"/><circle cx="19" cy="39.5" r="6"/><circle cx="45" cy="39.5" r="6"/></g></svg>
+            <span class="mono" data-clock></span>
+          </span>
+        </div>
+        <div class="desk">
+          <div class="explorer">
+            <div class="explorer-bar">
+              <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+              <span class="explorer-name">Downloads</span>
+            </div>
+            <div class="explorer-body">
+              <ul class="explorer-side" aria-hidden="true">
+                <li class="side-head">Favorites</li><li>Recents</li><li>Applications</li><li>Desktop</li><li>Documents</li><li class="is-on">Downloads</li>
+              </ul>
+              <div class="explorer-files" data-files role="group" aria-label="Sample files. Press Enter on one to open the wheel."></div>
+            </div>
+          </div>
+
+          <div class="overlay" data-overlay>
+            <div class="panel" data-panel></div>
+            <div class="wheel-wrap" data-wheel></div>
+            <div class="result-card" data-card aria-hidden="true"></div>
+            <div class="island" data-island role="status"></div>
+            <div class="ghost" data-ghost aria-hidden="true"></div>
+          </div>
+
+          <div class="stage-keys" data-keys aria-label="Wheel keys"></div>
+          <p class="hint" data-hint></p>
+        </div>
+        <p class="sr-only" aria-live="polite" data-live></p>
+      </div>
+      <p class="stage-note">Morph's own wheels and actions, drawn in your browser. Drag a file and tap a key, or tap a file on a phone. ⌘-click (Ctrl-click) picks several files. Nothing is uploaded or converted here.</p>
+    </div>
+  </main>
+</div>
+
+<section id="mac">
+  <div class="wrap split">
+    <div>
+      <h2>On the Mac, the wheel comes to your cursor.</h2>
+      <p class="lead">While you drag files from Finder, the desktop or any app, tap a wheel's keys. That wheel opens right under the cursor; drop on an action and the result appears next to the original.</p>
+      <ul class="points">
+        <li><kbd>⇧</kbd><span><strong>Convert</strong> images, video, audio, documents and data to the format you need.</span></li>
+        <li><kbd>⌘</kbd><span><strong>Tools</strong> compress, resize, strip location data, blur faces and read text.</span></li>
+        <li><kbd>⌃</kbd><span><strong>Recipes</strong> run several steps in one drop, like resize and convert to WEBP.</span></li>
+        <li><kbd>⌥</kbd><span><strong>Actions</strong> send with AirDrop, copy the path, move, or open Terminal there.</span></li>
+      </ul>
+      <p class="lead" style="margin-top:1.6rem">Tap another wheel's keys to switch mid-drag, or press Esc to close. Every key and combination can be changed in Settings.</p>
+    </div>
+    <div class="mac-pair shots-first">
+      <img class="shot" src="images/mac-wheel-convert.png" alt="The Convert wheel open over a file, with HEIC highlighted and the wheel bar showing each wheel's key" loading="lazy">
+      <img class="shot" src="images/mac-wheel-tools-dark.png" alt="The Tools wheel in dark mode with Compress highlighted" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="windows">
+  <div class="wrap split">
+    <div class="mac-pair">
+      <img class="shot" src="images/win-wheel.png" alt="The Convert wheel on Windows with AVIF highlighted and the wheel bar showing Shift, Ctrl, Ctrl+Shift and Alt" loading="lazy">
+      <img class="shot" src="images/win-welcome.png" alt="Morph's welcome guide on Windows explaining each wheel's key" loading="lazy">
+    </div>
+    <div>
+      <h2>On Windows, the same wheel.</h2>
+      <p class="lead">Drag files from File Explorer or the desktop and tap a key. The wheel opens under the cursor, and the result lands beside the original.</p>
+      <ul class="points">
+        <li><kbd>Shift</kbd><span><strong>Convert</strong> to the format you need.</span></li>
+        <li><kbd>Ctrl</kbd><span><strong>Tools</strong> compress, clean up, read text and codes.</span></li>
+        <li><kbd>Alt</kbd><span><strong>Actions</strong> share, copy, move, or open Terminal there.</span></li>
+      </ul>
+      <p class="lead" style="margin-top:1.6rem">Ctrl+Shift opens Recipes. Morph also sits in the taskbar corner, where you can drop files on its panel and undo any job, and it adds Open in Morph to File Explorer's right-click menu.</p>
+    </div>
+  </div>
+</section>
+
+<section id="iphone" class="phone-band">
+  <div class="wrap split">
+    <div class="phones">
+      <img src="images/ios-home.png" alt="Morph's home screen on iPhone with recent jobs" loading="lazy">
+      <img src="images/ios-actions-dark.png" alt="Choosing what to make from a photo, in dark mode" loading="lazy">
+      <img src="images/ios-result.png" alt="A finished conversion with options to share or save to Photos" loading="lazy">
+    </div>
+    <div>
+      <h2>On iPhone, it's a Shortcuts app too.</h2>
+      <p class="lead">Open files from any share sheet, or let your shortcuts do the work. Every action runs on the device and hands its results to the next step.</p>
+      <ul class="shortcuts">
+        <li>Convert Images</li>
+        <li>Compress Files</li>
+        <li>Remove Metadata</li>
+        <li>Extract Text</li>
+        <li>Read QR Codes and Barcodes</li>
+        <li>Merge PDFs</li>
+        <li>Run any Morph action or recipe</li>
+        <li>Open in Morph</li>
+      </ul>
+      <p class="siri">"Remove location from photos with Morph."</p>
+      <p class="lead" style="margin-top:.6rem">Works with Siri, Spotlight and the Action button. Press and hold the app icon to convert photos straight away.</p>
+      <div style="margin-top: 1.4rem;">
+        <a class="button primary" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Join the iOS TestFlight Beta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="wheels">
+  <div class="wrap">
+    <h2>What's on the wheels</h2>
+    <p class="lead">Only the actions that fit the files you're holding show up.</p>
+    <div class="wheels">
+      <div>
+        <h3><kbd>⇧</kbd>Convert</h3>
+        <ul>
+          <li>JPG, PNG, HEIC, WEBP, AVIF, TIFF, GIF, BMP</li>
+          <li>SVG to any of them, any image traced to SVG</li>
+          <li>Images into one PDF</li>
+          <li>MP4, MOV, WEBM, MKV, GIF</li>
+          <li>M4A, WAV, AIFF, MP3, FLAC, OGG, OPUS</li>
+          <li>DOCX, ODT, RTF, HTML, Markdown, PDF</li>
+          <li>SRT and VTT, CSV, TSV and JSON</li>
+        </ul>
+      </div>
+      <div>
+        <h3><kbd>⌘</kbd>Tools</h3>
+        <ul>
+          <li>Compress images, video and PDFs, or fit them under a size limit like 200 KB</li>
+          <li>Resize</li>
+          <li>Remove metadata and location</li>
+          <li>Blur faces, hide personal info</li>
+          <li>Extract text, read QR codes</li>
+          <li>Merge and split PDFs</li>
+          <li>Zip and extract archives</li>
+        </ul>
+      </div>
+      <div>
+        <h3><kbd>⌃</kbd>Recipes</h3>
+        <ul>
+          <li>Web Image</li>
+          <li>Under 1 MB</li>
+          <li>Share-Safe Photo</li>
+          <li>Your own, saved from the command line</li>
+        </ul>
+      </div>
+      <div>
+        <h3><kbd>⌥</kbd>Actions</h3>
+        <ul>
+          <li>AirDrop, Messages, Mail</li>
+          <li>Copy, or copy the path</li>
+          <li>Move to or copy to a folder</li>
+          <li>Open Terminal there</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Free, private and careful with your files.</h2>
+    <div class="promise">
+      <div><h3>Nothing leaves your device</h3><p>Every conversion runs locally. There are no accounts, no uploads and no tracking.</p></div>
+      <div><h3>Originals stay untouched</h3><p>Results are saved beside the original with a new name, never on top of it.</p></div>
+      <div><h3>Any job can be undone</h3><p>Morph keeps a history; undo moves that job's results to the Trash.</p></div>
+      <div><h3>Fits any upload limit</h3><p>Set a size like 200 KB and Compress makes a JPG that fits, for exam forms and job portals.</p></div>
+      <div><h3>Your color</h3><p>Teal Ink is Morph's own. Pick Ultramarine, Green, Magenta or Yellow in Settings instead.</p></div>
+      <div><h3>Free, for good</h3><p>No ads, no subscription and no account. Morph is open source.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="conversions">
+  <div class="wrap">
+    <h2>Popular conversions</h2>
+    <p class="lead">Step-by-step guides, and exactly what works on each device.</p>
+    <nav class="conversions" aria-label="Popular conversions">
+      <a href="heic-to-jpg.html">HEIC to JPG</a>
+      <a href="pdf-converter.html">PDF converter</a>
+      <a href="jpg-to-pdf.html">JPG to PDF</a>
+      <a href="merge-pdf.html">Merge PDFs</a>
+      <a href="mp4-to-mp3.html">MP4 to MP3</a>
+      <a href="mov-to-mp4.html">MOV to MP4</a>
+      <a href="video-to-gif.html">Video to GIF</a>
+      <a href="compress-image.html">Compress to 200 KB</a>
+      <a href="png-to-svg.html">PNG to SVG</a>
+      <a href="svg-to-png.html">SVG to PNG</a>
+      <a href="webp-to-jpg.html">WEBP to JPG</a>
+      <a href="image-converter.html">Image converter</a>
+      <a href="remove-exif.html">Remove EXIF and location</a>
+      <a href="image-to-text.html">Image to text</a>
+      <a href="compress-pdf.html">Compress PDF</a>
+      <a href="pdf-to-jpg.html">PDF to JPG</a>
+      <a href="split-pdf.html">Split PDF</a>
+      <a href="word-to-pdf.html">Word to PDF</a>
+      <a href="passport-photo-size.html">Passport photo size</a>
+      <a href="signature-resize.html">Signature resize</a>
+      <a href="resize-image-pixels.html">Resize to exact pixels</a>
+      <a href="compress-video.html">Compress video</a>
+      <a href="png-to-jpg.html">PNG to JPG</a>
+      <a href="png-to-pdf.html">PNG to PDF</a>
+      <a href="pdf-to-png.html">PDF to PNG</a>
+      <a href="jpg-to-png.html">JPG to PNG</a>
+      <a href="heic-to-png.html">HEIC to PNG</a>
+      <a href="heic-to-pdf.html">HEIC to PDF</a>
+      <a href="webp-to-png.html">WEBP to PNG</a>
+      <a href="png-to-webp.html">PNG to WEBP</a>
+      <a href="avif-to-jpg.html">AVIF to JPG</a>
+      <a href="svg-to-pdf.html">SVG to PDF</a>
+      <a href="jpg-to-svg.html">JPG to SVG</a>
+      <a href="pdf-to-word.html">PDF to Word</a>
+      <a href="pdf-to-text.html">PDF to text</a>
+      <a href="mp4-to-gif.html">MP4 to GIF</a>
+    </nav>
+  </div>
+</section>
+
+<section id="questions">
+  <div class="wrap">
+    <h2>Common questions</h2>
+    <div class="faq">
+      <div><h3>How do I convert HEIC photos to JPG?</h3><p>Open the photo in Morph and choose JPG. On a Mac or Windows PC, start dragging the photo and tap Shift: the Convert wheel opens under your cursor, and the JPG lands beside the original. On iPhone and Android, share the photo to Morph or pick it in the app.</p></div>
+      <div><h3>How do I compress a photo to 200 KB, 100 KB or 50 KB?</h3><p>Set a size limit in Morph&#x27;s Settings, from 20 KB to 5 MB or any size you type, then use Compress. Morph makes a JPG under the limit at the best quality that fits, which is what exam forms and job portals ask for.</p></div>
+      <div><h3>Can Morph convert PNG to SVG, or SVG to PNG?</h3><p>Yes, both ways. Any image can be traced into a real vector SVG, which works best for logos, icons and simple drawings, and an SVG can be turned into PNG, JPG, WEBP or PDF at a sharp size.</p></div>
+      <div><h3>Does Morph upload my files?</h3><p>No. Every conversion runs on your own device, and the apps make no network requests. There are no accounts, no ads and no tracking, and your originals are never changed.</p></div>
+      <div><h3>Is Morph free?</h3><p>Yes. Morph is free on every platform and open source under the MIT license, with nothing to unlock.</p></div>
+      <div><h3>Which devices does Morph run on?</h3><p>Mac (macOS 14 or later), Windows 10 and 11, iPhone and iPad (iOS 17 or later) and Android 10 or later.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="download" class="download">
+  <div class="wrap">
+    <h2>Get Morph</h2>
+    <p class="lead">Morph is open source. The Mac, Windows and Android builds are on the GitHub releases page.</p>
+    <div class="platforms">
+      <div class="platform mac">
+        <h3>Mac</h3>
+        <p>Menu bar app with the drag wheel and the <code>morph</code> command-line tool. macOS 14 or later.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem;">
+          <a class="button" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download DMG</a>
+          <a class="button quiet" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Mac App Store beta (TestFlight)</a>
+        </div>
+        <p class="fine" style="margin-top:.7rem; opacity:.92; line-height: 1.45;"><strong>Early preview:</strong> Morph is new and still has bugs and rough edges, most of all in the TestFlight betas. If something breaks or crashes, please <a href="https://github.com/geetxnshgoyal/morph/issues" style="text-decoration: underline; color: inherit;" target="_blank" rel="noopener">tell us on GitHub</a>.</p>
+      </div>
+      <div class="platform">
+        <h3>Windows</h3>
+        <p>The same drag wheel, plus a tray panel and Open in Morph in File Explorer. Windows 10 (1809) or later and Windows 11, on x64 and Arm. This first build is a beta that hasn't been tried on many PCs yet.</p>
+        <a class="button quiet" href="https://apps.microsoft.com/detail/9PHWJVRC85DW">Get it from the Microsoft Store</a>
+        <p class="fine">Or download the installer for <a href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-x64-setup.exe">x64</a> or <a href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-arm64-setup.exe">Arm</a>. It isn't code-signed yet: if SmartScreen warns, click More info, then Run anyway.</p>
+      </div>
+      <div class="platform">
+        <h3>Android</h3>
+        <p>In testing on Google Play, out for everyone around 11 November 2026. Share files to Morph from any app. Android 10 or later.</p>
+        <a class="button quiet" href="android.html">Join the Play Store beta</a>
+        <p class="fine">Or <a href="https://github.com/geetxnshgoyal/morph/releases/latest">download the APK</a> from GitHub.</p>
+      </div>
+      <div class="platform">
+        <h3>iPhone and iPad</h3>
+        <p>Convert, compress and strip metadata from photos, videos and files right on iOS. iOS 17 or later.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem;">
+          <a class="button primary" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Join TestFlight Beta</a>
+          <a class="button quiet" href="https://github.com/geetxnshgoyal/morph/tree/main/ios" target="_blank" rel="noopener">Build from source</a>
+        </div>
+        <p class="fine" style="margin-top:.7rem;">Available directly via Apple TestFlight. You can also build it with Xcode from the source code.</p>
+      </div>
+    </div>
+<pre><span class="c"># The command-line tool ships inside the Mac app.</span>
+morph actions photo.heic              <span class="c"># what fits this file</span>
+morph run convert.webp --max 1600 photo.heic
+morph run "recipe.Under 1 MB" scans/*.pdf
+morph watch ~/Downloads tool.strip-metadata</pre>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>Morph is free and open source.</span>
+    <nav aria-label="More">
+      <a href="privacy.html">Privacy</a>
+      <a href="support.html">Support</a>
+      <a href="sponsor.html">Sponsor</a>
+      <a href="https://github.com/geetxnshgoyal/morph">Source on GitHub</a>
+    </nav>
+  </footer>
+</div>
+
+<script type="module" src="assets/js/site.js"></script>
+</body>
+</html>
