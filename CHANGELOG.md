@@ -1,5 +1,13 @@
 # Changelog
 
+## Halloween edition
+
+### Mac
+- **Pumpkin.** A new color in Settings: an orange wheel, a cobweb with a spider on a thread, and spooky sounds.
+
+### Website
+- **Halloween look on every page,** with cobwebs, spiders and a "Trick or treat?" wheel on the homepage. Now at [spooky-morph.vercel.app](https://spooky-morph.vercel.app).
+
 ## Unreleased
 
 ### Everywhere

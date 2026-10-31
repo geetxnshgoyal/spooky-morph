@@ -1,34 +1,43 @@
-# Morph
+# Spooky Morph
 
-**Drag a file, tap a key, drop it on the wheel.** [morph.geetanshgoyal.in](https://morph.geetanshgoyal.in)
+**Drag a file, tap a key, drop it on the wheel.** [spooky-morph.vercel.app](https://spooky-morph.vercel.app)
 
 Morph is a free file converter and toolbox for macOS, Windows, iOS and Android. It shows only the actions that make sense for the files you give it: convert them, compress them, strip their metadata, pull the text out of them and more. Everything runs on your device; nothing is uploaded.
 
 <p>
-  <img src="docs/images/mac-wheel-convert.png" width="49%" alt="The Convert wheel open over a file, with HEIC highlighted">
-  <img src="docs/images/mac-wheel-tools-dark.png" width="49%" alt="The Tools wheel in dark mode with Compress highlighted">
+  <img src="docs/images/halloween-site.png" width="49%" alt="The Halloween website: Pumpkin orange on a dark page, with a cobweb and a spider in the corner">
+  <img src="docs/images/halloween-wheel.png" width="49%" alt="The website's demo wheel in Pumpkin, with a cobweb in its hub">
 </p>
+
+## What's spooky
+
+This is the Halloween edition of [Morph](https://github.com/geetxnshgoyal/morph). The file converter itself was already built; this repo adds:
+
+**In the Mac app**, pick the **Pumpkin** color in Settings and the wheel changes with it:
+- An orange wheel, with near-black labels so they stay readable
+- A cobweb in the corner of the wheel, with a spider letting itself down on a thread
+- Spooky sounds, all synthesized in the app: a hollow creak, a ghostly "wooo" and a low groan
+
+**On the [website](https://spooky-morph.vercel.app)**, on every page:
+- Pumpkin orange on a dark canvas, with the product screenshots tinted to match
+- On the homepage, cobwebs with spiders on threads, a web in the demo wheel's hub, and a wheel that asks "Trick or treat?"
 
 ## Download
 
-Grab the latest build from [Releases](../../releases/latest):
+Grab a build from [Releases](https://github.com/geetxnshgoyal/morph/releases/latest):
 
 | Platform | File | Needs |
 | --- | --- | --- |
-| macOS | [`Morph-1.0.0.dmg`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg), or the Mac App Store beta on [TestFlight](https://testflight.apple.com/join/6fFuMydz) (out around 11 November 2026) | macOS 14 or later, Apple Silicon or Intel |
-| Windows (beta) | [Microsoft Store](https://apps.microsoft.com/detail/9PHWJVRC85DW), or [`Morph-1.0.1-x64-setup.exe`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-x64-setup.exe) ([`arm64`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-arm64-setup.exe) for Arm PCs) | Windows 10 version 1809 or later, or Windows 11 |
-| Android | Google Play is in closed testing, out around 11 November 2026: [join the testers](https://morph.geetanshgoyal.in/android.html) to get it now, or use `Morph-1.0.0.apk` | Android 10 or later |
-| iOS | the beta on [TestFlight](https://testflight.apple.com/join/6fFuMydz); on the App Store around 11 November 2026 | iOS 17 or later |
+| macOS | [`Morph-1.0.0.dmg`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg) | macOS 14 or later, Apple Silicon or Intel |
+| Windows | [Microsoft Store](https://apps.microsoft.com/detail/9PHWJVRC85DW), or [`Morph-1.0.1-x64-setup.exe`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-x64-setup.exe) ([`arm64`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-arm64-setup.exe) for Arm PCs) | Windows 10 version 1809 or later, or Windows 11 |
+| Android | [`Morph-1.0.0.apk`](https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.apk) | Android 10 or later |
+| iOS | build it with Xcode, see [ios/README.md](ios/README.md) | iOS 17 or later |
 
-**macOS:** open the DMG and drag Morph into Applications. The build is signed with a Developer ID and notarized by Apple. To try the Mac App Store version instead, install TestFlight and open the [beta link](https://testflight.apple.com/join/6fFuMydz) on your Mac; it saves results to Downloads until you allow saving next to your files in Settings → Output.
+**macOS:** open the DMG and drag Morph into Applications. The build is signed with a Developer ID and notarized by Apple. These downloads are Morph 1.0.0, from before the Pumpkin color. To get Pumpkin, build the Mac app from this repo: `scripts/bundle.sh --install`.
 
-**iPhone and iPad:** install TestFlight, then open the [beta link](https://testflight.apple.com/join/6fFuMydz) on your iPhone or iPad.
+**Windows:** get Morph from the [Microsoft Store](https://apps.microsoft.com/detail/9PHWJVRC85DW), or run the setup file. It installs for your user only, with no admin prompt. The installer isn't code-signed yet, so SmartScreen may say it doesn't recognise the app: click **More info**, then **Run anyway**. Morph then sits in the taskbar corner; see [windows/README.md](windows/README.md).
 
-**Betas:** Morph is new and still has bugs, most of all in the TestFlight builds. Please [report](https://github.com/geetxnshgoyal/morph/issues/new) anything that breaks, with your device and the file you used.
-
-**Windows (beta):** get Morph from the [Microsoft Store](https://apps.microsoft.com/detail/9PHWJVRC85DW), or run the setup file. This first build hasn't been tried on many PCs yet, so please [report](https://github.com/geetxnshgoyal/morph/issues/new) anything that breaks. It installs for your user only, with no admin prompt. The installer isn't code-signed yet, so SmartScreen may say it doesn't recognise the app: click **More info**, then **Run anyway**. Morph then sits in the taskbar corner; see [windows/README.md](windows/README.md).
-
-**Android:** to get Morph from Google Play now, join the [Morph testers group](https://groups.google.com/g/morph-tester), tap **Become a tester** on the [opt-in page](https://play.google.com/apps/testing/app.morph) with the same Google account, then install it from the [Play Store](https://play.google.com/store/apps/details?id=app.morph). Or open the APK on your phone and allow installs from that source when asked. See [android/README.md](android/README.md).
+**Android:** download the APK, open it on your phone, and allow installs from that source when Android asks.
 
 ## The Mac app
 
@@ -107,7 +116,7 @@ Formats marked as needing ffmpeg (WEBM, MKV, MP3, FLAC, OGG, OPUS and the loudne
 
 Originals are never touched: results get a new name beside them, and every job can be undone from the menu bar or the Windows tray panel (or `morph undo`).
 
-Every app lets you pick an accent color in Settings: Teal Ink (Morph's own), Ultramarine, Green, Magenta or Yellow.
+Every app lets you pick an accent color in Settings: Teal Ink (Morph's own), Ultramarine, Green, Magenta or Yellow. The Mac app also has Pumpkin.
 
 Morph collects no data and makes no network requests; see the [privacy policy](docs/privacy.html).
 
@@ -132,7 +141,7 @@ For example: `morph run convert.webp --max 1600 photo.heic`, or `morph run conve
 
 ## Sponsor
 
-Morph is free, with no ads, no accounts and no tracking. If it saves you time, [sponsor it on GitHub](https://github.com/sponsors/geetxnshgoyal): it pays for the Apple and Google developer accounts and the time to keep improving it. More on the [sponsor page](https://morph.geetanshgoyal.in/sponsor.html).
+Morph is free, with no ads, no accounts and no tracking. If it saves you time, [sponsor it on GitHub](https://github.com/sponsors/geetxnshgoyal): it pays for the Apple and Google developer accounts and the time to keep improving it. More on the [sponsor page](https://spooky-morph.vercel.app/sponsor.html).
 
 ## Building from source
 
@@ -148,7 +157,7 @@ scripts/bundle.sh --dmg
 
 `bundle.sh` builds a universal `dist/Morph.app`; `--dmg` also makes `dist/Morph-<version>.dmg`, and `--install` copies the app to /Applications and launches it. To sign with a Developer ID and notarize, see the comments at the top of the script.
 
-The iOS, Android and Windows apps have their own instructions in [ios/README.md](ios/README.md), [android/README.md](android/README.md) and [windows/README.md](windows/README.md). The website lives in [`docs/`](docs) and is served at [morph.geetanshgoyal.in](https://morph.geetanshgoyal.in) and launch copy in [`marketing/`](marketing). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
+The iOS, Android and Windows apps have their own instructions in [ios/README.md](ios/README.md), [android/README.md](android/README.md) and [windows/README.md](windows/README.md). The website lives in [`docs/`](docs) and is served at [spooky-morph.vercel.app](https://spooky-morph.vercel.app) and launch copy in [`marketing/`](marketing). Changes are listed in [CHANGELOG.md](CHANGELOG.md).
 
 ## Project layout
 
