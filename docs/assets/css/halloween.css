@@ -1,0 +1,76 @@
+/* The Halloween edition: Pumpkin on Morph's dark canvas, as in the Mac app's Pumpkin colour, with cobwebs
+   (drawn by assets/js/halloween.js). On when <html> has the `halloween` class. Labels on orange are
+   near-black: white on this orange falls short of WCAG AA. The logo stays Teal Ink. */
+
+html.halloween {
+  --ink: #EEF0F3;
+  --ink-soft: #A9AEB8;
+  --paper: #0E1414;
+  --line: #26302F;
+  --brand: #EB6A12;
+  --brand-deep: #C8550A;
+  --brand-light: #FF9A4D;
+  --night: #070B0B;
+  --surface: #172020;
+  --on-brand: #1A0E05;
+  color-scheme: dark;
+}
+
+.halloween .button.primary { color: var(--on-brand); box-shadow: 0 4px 18px rgba(235, 106, 18, 0.35); }
+.halloween .button.primary:hover { box-shadow: 0 6px 24px rgba(235, 106, 18, 0.5); }
+.halloween .button.quiet, .halloween .conversions a, .halloween .platform, .halloween .points kbd {
+  background: var(--surface); color: var(--ink);
+}
+.halloween .points kbd { box-shadow: 0 3px 0 #050808; }
+.halloween .platform.mac { background: var(--brand); color: var(--on-brand); }
+.halloween .platform.mac p { color: rgba(26, 14, 5, 0.85); }
+.halloween .platform.mac .button { background: var(--on-brand); color: #FFF3E8; }
+.halloween .wheels h3 kbd { color: var(--on-brand); }
+.halloween .phone-band .lead { color: #B9C2C0; }
+.halloween .shot { box-shadow: 0 30px 70px -30px rgba(0, 0, 0, 0.8); }
+
+.eyebrow { display: none; }
+.halloween .eyebrow {
+  display: inline-block; margin: 0 0 1.1rem; padding: .35rem .8rem; border-radius: 999px;
+  border: 1px solid rgba(235, 106, 18, 0.5); color: var(--brand-light);
+  font: 650 .82rem/1 var(--body); letter-spacing: .04em; text-transform: uppercase;
+}
+
+/* The demo: the wheel's highlight, keys and bar in Pumpkin, and a faint web in the hub. */
+.halloween .stage {
+  --w-accent: #EB6A12; --w-accent-hi: #FF8A3D; --w-mark: #EB6A12;
+  --tide: #EB6A12; --tide-300: #FF9A4D; --accent-mark: #FF9A4D;
+}
+.halloween .panel-tab.is-on, .halloween .island-mark.is-done { color: var(--on-brand); }
+.halloween .wheel-web { fill: none; stroke: rgba(255, 255, 255, 0.12); stroke-width: 0.7; }
+
+/* Cobwebs: a big one in the page's top-right corner, a small one on the demo desk, each with a spider. */
+.web { display: none; }
+.halloween .web { display: block; position: absolute; top: 0; right: 0; pointer-events: none; z-index: 1; }
+.halloween .web-page { position: absolute; }
+.halloween .web-desk { z-index: 2; }
+.web-lines { display: block; }
+.web-lines path { fill: none; stroke: rgba(255, 255, 255, 0.5); stroke-width: 1; stroke-linecap: round; }
+.web-desk .web-lines path { stroke: rgba(255, 255, 255, 0.3); }
+.web-thread {
+  position: absolute; top: 18px; right: 34%; width: 1px; height: var(--drop);
+  background: rgba(255, 255, 255, 0.45); transform-origin: top;
+  animation: dangle 3.2s ease-in-out infinite alternate;
+}
+.web-desk .web-thread { right: 30%; }
+.spider { position: absolute; left: -13px; bottom: -16px; width: 26px; height: 22px; filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5)); }
+.spider-eye { fill: #EB6A12; }
+@keyframes dangle { from { height: calc(var(--drop) * 0.72); } to { height: var(--drop); } }
+@media (prefers-reduced-motion: reduce) { .web-thread { animation: none; } }
+@media (max-width: 600px) { .halloween .web-page { transform: scale(0.6); transform-origin: top right; } }
+
+/* The smaller pages: dark cards, and near-black on orange, as on the homepage. */
+.halloween .steps li, .halloween .where li, .halloween .get div, .halloween .related a, .halloween .card { background: var(--surface); }
+.halloween .steps li::before, .halloween .promise, .halloween .promise * { color: var(--on-brand); }
+.halloween .get .button:not(.quiet), .halloween .card .button:not(.quiet) { color: var(--on-brand); }
+.halloween .get .button:not(.quiet):hover, .halloween .card .button:not(.quiet):hover { background: var(--brand-light); }
+
+/* Product screenshots take the Pumpkin tint. Only the Mac app has the color; .tint-note says so beside the others. */
+.halloween .shot, .halloween .phones img { filter: hue-rotate(208deg) saturate(2.4) brightness(1.2); }
+.tint-note { display: none; }
+.halloween .tint-note { display: block; margin-top: .9rem; color: var(--ink-soft); font-size: .9rem; }

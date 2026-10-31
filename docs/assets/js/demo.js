@@ -6,6 +6,7 @@
 import { Wheel, arrange, outerEdge, OUTSIDE, ON_CENTRE } from './wheel.js';
 import { SAMPLE_FILES, SECTIONS, wheelFor, wheelForMany, formatSize } from './content.js';
 import { iconSvg } from './icons.js';
+import { isHalloween } from './halloween.js';
 
 const DRAG_START_PX = 5;
 const MAX_ADDED = 4;
@@ -176,7 +177,7 @@ export function startDemo(stage) {
     section = (i + sections.length) % sections.length;
     const s = sections[section];
     const centreText = batch.length > 1 ? `${batch.length} files` : `${file.base}.${file.ext}`;
-    const title = byClick ? (isTouch ? 'Tap an action' : 'Click an action') : 'Drop on an action';
+    const title = isHalloween ? 'Trick or treat?' : byClick ? (isTouch ? 'Tap an action' : 'Click an action') : 'Drop on an action';
     const hint = byClick ? (isTouch ? 'Tap to run' : 'Click to run') : 'Release to run';
     wheel.set({ slices: s.slices, centre: centreText, title, hint, sections: sections.length, section }, { animate, dir });
     renderPanel();

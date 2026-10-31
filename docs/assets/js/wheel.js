@@ -4,6 +4,7 @@
 // CSS scales it.
 
 import { icon } from './icons.js';
+import { isHalloween, hubWebPath } from './halloween.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 
@@ -243,6 +244,7 @@ export class Wheel {
     this.centre = el('g', { class: 'wheel-centre' }, this.root);
     el('circle', { class: 'wheel-centre-disc', cx: 0, cy: 0, r: CENTRE }, this.centre);
     el('circle', { class: 'wheel-centre-line', cx: 0, cy: 0, r: CENTRE - 0.5 }, this.centre);
+    if (isHalloween) el('path', { class: 'wheel-web', d: hubWebPath(CENTRE - 3) }, this.centre);
     this.mainA = el('text', { class: 'wheel-main', 'text-anchor': 'middle' }, this.centre);
     this.mainB = el('text', { class: 'wheel-main', 'text-anchor': 'middle' }, this.centre);
     this.detailA = el('text', { class: 'wheel-detail', 'text-anchor': 'middle' }, this.centre);

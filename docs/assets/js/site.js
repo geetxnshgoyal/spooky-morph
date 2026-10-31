@@ -2,6 +2,7 @@ import { startDemo } from './demo.js';
 import { Wheel } from './wheel.js';
 import { SAMPLE_FILES, wheelFor } from './content.js';
 import { iconSvg } from './icons.js';
+import { isHalloween, hangWebs } from './halloween.js';
 
 const REPO = 'CoPrime69/ShiftDrop';
 
@@ -9,6 +10,8 @@ const REPO = 'CoPrime69/ShiftDrop';
 for (const el of document.querySelectorAll('[data-icon]')) {
   el.insertAdjacentHTML('afterbegin', iconSvg(el.dataset.icon, el.dataset.iconClass || 'icon'));
 }
+
+if (isHalloween) hangWebs();
 
 // The sun/moon button in the header.
 for (const b of document.querySelectorAll('[data-theme-toggle]')) {
