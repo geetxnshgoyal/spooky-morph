@@ -37,7 +37,7 @@ enum Theme {
 /// The accent colours people can choose in Settings. Teal Ink is Morph's own and the default; the app icon stays
 /// Teal Ink whatever is picked. Every option keeps labels on its fill at WCAG AA or better in light and dark mode.
 enum Palette: String, CaseIterable, Identifiable {
-    case teal, ultramarine, green, magenta, yellow
+    case teal, ultramarine, green, magenta, yellow, pumpkin
 
     static let key = "palette"
     /// The chosen palette, kept in memory: views read it on every frame.
@@ -52,6 +52,7 @@ enum Palette: String, CaseIterable, Identifiable {
         case .green: return "Green"
         case .magenta: return "Magenta"
         case .yellow: return "Yellow"
+        case .pumpkin: return "Pumpkin"
         }
     }
 
@@ -77,6 +78,7 @@ enum Palette: String, CaseIterable, Identifiable {
         case .green: return Color(nsColor: Theme.rgb(0x17804A))
         case .magenta: return Color(nsColor: Theme.rgb(0xD6007A))
         case .yellow: return Color(nsColor: Theme.rgb(0xFFD60A))
+        case .pumpkin: return Color(nsColor: Theme.rgb(0xEB6A12))
         }
     }
 
@@ -88,6 +90,7 @@ enum Palette: String, CaseIterable, Identifiable {
         case .green: return Theme.dynamic(light: Theme.rgb(0x136B3E), dark: Theme.rgb(0x62C48E))
         case .magenta: return Theme.dynamic(light: Theme.rgb(0xC2006E), dark: Theme.rgb(0xFF8CC6))
         case .yellow: return Theme.dynamic(light: Theme.rgb(0x735A00), dark: Theme.rgb(0xFFD60A))
+        case .pumpkin: return Theme.dynamic(light: Theme.rgb(0xA3470A), dark: Theme.rgb(0xFF9A4D))
         }
     }
 
@@ -99,11 +102,21 @@ enum Palette: String, CaseIterable, Identifiable {
         case .green: return Color(nsColor: Theme.rgb(0x136B3E))
         case .magenta: return Color(nsColor: Theme.rgb(0xC2006E))
         case .yellow: return Color(nsColor: Theme.rgb(0x735A00))
+        case .pumpkin: return Color(nsColor: Theme.rgb(0xA3470A))
         }
     }
 
-    /// Labels on the fill: white, except on yellow.
-    private func makeOnFill() -> Color { self == .yellow ? Color(nsColor: Theme.rgb(0x121318)) : .white }
+    /// Labels on the fill: white, except on yellow and pumpkin, where white wouldn't reach AA.
+    private func makeOnFill() -> Color {
+        switch self {
+        case .yellow: return Color(nsColor: Theme.rgb(0x121318))
+        case .pumpkin: return Color(nsColor: Theme.rgb(0x1A0E05))
+        default: return .white
+        }
+    }
+
+    /// Pumpkin brings a few Halloween touches to the wheel with it.
+    var isSpooky: Bool { self == .pumpkin }
 }
 
 /// Holds the chosen palette in memory and re-reads it whenever settings change, so `Palette.current` costs nothing.
