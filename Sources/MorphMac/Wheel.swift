@@ -284,13 +284,13 @@ final class WheelModel: ObservableObject {
             }
             phase = .finished(action, result)
             if result.failures.isEmpty {
-                if prefs.playSounds { NSSound(named: "Glass")?.play() }
+                Feedback.shared.done()
                 if prefs.revealWhenDone, !result.outputs.isEmpty { reveal(result); return }
                 // Long enough to read "171 KB → 144 KB".
                 try? await Task.sleep(for: .seconds(3.5))
                 if case .finished = phase { dismiss() }
-            } else if prefs.playSounds {
-                NSSound.beep()
+            } else {
+                Feedback.shared.failed()
             }
         }
     }
@@ -338,6 +338,11 @@ struct WheelView: View {
                     .opacity(present ? 1 : 0)
                     .position(x: WheelMetrics.center.x, y: WheelMetrics.center.y + WheelMetrics.outerRadius + WheelMetrics.lift + 42)
                     .transition(.opacity)
+            }
+        }
+        .overlay(alignment: .topTrailing) {
+            if Palette.current.isSpooky {
+                CornerWeb(present: present).allowsHitTesting(false)
             }
         }
         .frame(width: WheelMetrics.width, height: WheelMetrics.height)
@@ -477,6 +482,10 @@ private struct WheelHub: View {
                 .overlay(Circle().strokeBorder(LinearGradient(colors: [.white.opacity(0.5), .white.opacity(0.05)],
                                                               startPoint: .top, endPoint: .bottom), lineWidth: 1))
                 .shadow(color: .black.opacity(0.12), radius: 14)
+            if Palette.current.isSpooky {
+                HubWeb().stroke(Color.primary.opacity(0.13), lineWidth: 0.7)
+                    .frame(width: diameter - 6, height: diameter - 6)
+            }
             content.frame(width: diameter - 26)
         }
         .frame(width: diameter, height: diameter)
@@ -540,6 +549,7 @@ private struct WheelHub: View {
     private var caption: String {
         if model.actions.isEmpty { return "Nothing fits these files" }
         if model.hovered != nil { return model.dropMode ? "Release to run" : "Click to run" }
+        if Palette.current.isSpooky { return "Trick or treat?" }
         return model.dropMode ? "Drop on an action" : model.group.label
     }
 
@@ -671,5 +681,141 @@ extension Action.Group {
         case .recipe: "Recipes"
         case .file: "Actions"
         }
+    }
+}
+
+// MARK: - Halloween
+
+/// A web spun in the top-right corner of the wheel's window, with a spider letting itself down on a thread,
+/// for the Pumpkin colour. Drawn, not an image, so it stays sharp and follows the motion settings.
+private struct CornerWeb: View {
+    let present: Bool
+    @State private var lowered = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    private let size: CGFloat = 104
+    private let spiderX: CGFloat = 26
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Cobweb()
+                .stroke(.white.opacity(0.75), style: StrokeStyle(lineWidth: 0.8, lineCap: .round, lineJoin: .round))
+                .shadow(color: .black.opacity(0.55), radius: 0.6)
+                .frame(width: size, height: size)
+            // The spider hangs from the web's outer ring, near the window's edge, clear of the petals.
+            let drop: CGFloat = lowered ? 92 : 64
+            ZStack(alignment: .top) {
+                Rectangle().fill(.white.opacity(0.7)).frame(width: 0.7, height: drop)
+                Spider().frame(width: 26, height: 22).offset(y: drop - 6)
+            }
+            .frame(width: 26, height: drop + 22, alignment: .top)
+            .offset(x: -spiderX + 13, y: 18)
+        }
+        .frame(width: size + 10, height: 200, alignment: .topTrailing)
+        .opacity(present ? 1 : 0)
+        .animation(.easeOut(duration: 0.2), value: present)
+        .onAppear {
+            guard !reduceMotion else { return }
+            withAnimation(.easeInOut(duration: 1.6).repeatForever(autoreverses: true)) { lowered = true }
+        }
+    }
+}
+
+/// A corner web: threads fanning out from the top-right corner, joined by rings that sag toward it.
+private struct Cobweb: Shape {
+    var threads = 6
+    var rings: [CGFloat] = [0.22, 0.4, 0.58, 0.76, 0.94]
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let corner = CGPoint(x: rect.maxX, y: rect.minY)
+        let reach = min(rect.width, rect.height)
+        // Angles run from straight left (along the top edge) to straight down (along the right edge).
+        let angles = (0..<threads).map { Double.pi / 2 * Double($0) / Double(threads - 1) }
+        func point(_ angle: Double, _ r: CGFloat) -> CGPoint {
+            CGPoint(x: corner.x - r * CGFloat(cos(angle)), y: corner.y + r * CGFloat(sin(angle)))
+        }
+        for a in angles {
+            path.move(to: corner)
+            path.addLine(to: point(a, reach))
+        }
+        for (k, ring) in rings.enumerated() {
+            // Hand-spun: each ring a touch uneven, each span sagging toward the corner.
+            let r = reach * ring
+            for i in 0..<(threads - 1) {
+                let wobble = CGFloat((i + k) % 3) * 0.012 * reach
+                let a = point(angles[i], r + wobble), b = point(angles[i + 1], r - wobble)
+                let mid = point((angles[i] + angles[i + 1]) / 2, r * 0.82)
+                if i == 0 { path.move(to: a) }
+                path.addQuadCurve(to: b, control: mid)
+            }
+        }
+        return path
+    }
+}
+
+/// A round web for the hub: spokes from the centre and rings that sag between them.
+private struct HubWeb: Shape {
+    var spokes = 10
+    var rings: [CGFloat] = [0.18, 0.36, 0.55, 0.74, 0.93]
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let c = CGPoint(x: rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2
+        func point(_ i: Int, _ r: CGFloat) -> CGPoint {
+            let a = Double(i) / Double(spokes) * 2 * .pi - .pi / 2
+            return CGPoint(x: c.x + r * CGFloat(cos(a)), y: c.y + r * CGFloat(sin(a)))
+        }
+        for i in 0..<spokes {
+            path.move(to: c)
+            path.addLine(to: point(i, radius))
+        }
+        for ring in rings {
+            let r = radius * ring
+            path.move(to: point(0, r))
+            for i in 0..<spokes {
+                let next = (i + 1) % spokes
+                let a0 = Double(i) / Double(spokes) * 2 * .pi - .pi / 2
+                let a1 = a0 + 2 * .pi / Double(spokes)
+                let mid = (a0 + a1) / 2
+                let control = CGPoint(x: c.x + r * 0.86 * CGFloat(cos(mid)), y: c.y + r * 0.86 * CGFloat(sin(mid)))
+                path.addQuadCurve(to: point(next, r), control: control)
+            }
+        }
+        return path
+    }
+}
+
+/// A small spider seen from above: eight jointed legs, a round abdomen and head, and two eyes in the accent.
+private struct Spider: View {
+    var body: some View {
+        Canvas { context, size in
+            let c = CGPoint(x: size.width / 2, y: size.height / 2)
+            var legs = Path()
+            // Four legs a side, each bending at the knee: forward pair reaching up, back pair reaching down.
+            let reaches: [(knee: CGVector, foot: CGVector)] = [
+                (CGVector(dx: 6, dy: -6), CGVector(dx: 11, dy: -2)),
+                (CGVector(dx: 7, dy: -2), CGVector(dx: 12, dy: 2)),
+                (CGVector(dx: 7, dy: 2), CGVector(dx: 12, dy: 7)),
+                (CGVector(dx: 6, dy: 5), CGVector(dx: 9, dy: 10)),
+            ]
+            for side in [-1.0, 1.0] {
+                for leg in reaches {
+                    legs.move(to: CGPoint(x: c.x, y: c.y))
+                    legs.addLine(to: CGPoint(x: c.x + side * leg.knee.dx, y: c.y + leg.knee.dy))
+                    legs.addLine(to: CGPoint(x: c.x + side * leg.foot.dx, y: c.y + leg.foot.dy))
+                }
+            }
+            context.stroke(legs, with: .color(Color(white: 0.08)), style: StrokeStyle(lineWidth: 1.3, lineCap: .round, lineJoin: .round))
+            let abdomen = CGRect(x: c.x - 4.5, y: c.y - 1, width: 9, height: 10)
+            let head = CGRect(x: c.x - 3, y: c.y - 6, width: 6, height: 6)
+            context.fill(Path(ellipseIn: abdomen), with: .color(Color(white: 0.08)))
+            context.fill(Path(ellipseIn: head), with: .color(Color(white: 0.08)))
+            for dx in [-1.3, 1.3] {
+                context.fill(Path(ellipseIn: CGRect(x: c.x + dx - 0.8, y: c.y - 4.6, width: 1.6, height: 1.6)), with: .color(Theme.brand))
+            }
+        }
+        .shadow(color: .white.opacity(0.35), radius: 0.8)
     }
 }
