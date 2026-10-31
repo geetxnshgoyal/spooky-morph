@@ -12,22 +12,22 @@ import json
 import pathlib
 import re
 
-SITE = "https://morph.geetanshgoyal.in"
+SITE = "https://spooky-morph.vercel.app"
+# The original site stays canonical, so this edition doesn't compete with it in search.
+CANONICAL = "https://morph.geetanshgoyal.in"
 DOCS = pathlib.Path(__file__).resolve().parent.parent / "docs"
-LAUNCH = "around 11 November 2026"
-UPDATED = "2026-10-28"
-TESTFLIGHT = "https://testflight.apple.com/join/6fFuMydz"
+UPDATED = "2026-10-31"
 
 # Where each platform's download or status lives, for the "Get Morph" block.
 GET = [
-    ("Mac", f'<a class="button" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download for Mac</a> <a class="button quiet" href="{TESTFLIGHT}">Mac App Store beta</a>',
-     f"macOS 14 or later, Apple Silicon or Intel. The App Store beta is on TestFlight; it's early and still has bugs."),
+    ("Mac", f'<a class="button" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download for Mac</a>',
+     "macOS 14 or later, Apple Silicon or Intel."),
     ("Windows", '<a class="button quiet" href="https://apps.microsoft.com/detail/9PHWJVRC85DW">Microsoft Store</a>',
      "Windows 10 (1809) or later and Windows 11."),
-    ("Android", '<a class="button quiet" href="android.html">Join the Google Play test</a>',
-     f"Android 10 or later. Out for everyone on Google Play {LAUNCH}."),
-    ("iPhone and iPad", f'<a class="button quiet" href="{TESTFLIGHT}">Join the TestFlight beta</a>',
-     f"iOS 17 or later. On the App Store {LAUNCH}; try the beta now with TestFlight (expect a few bugs)."),
+    ("Android", '<a class="button quiet" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.apk">Download the APK</a>',
+     "Android 10 or later."),
+    ("iPhone and iPad", '<a class="button quiet" href="https://github.com/geetxnshgoyal/spooky-morph/tree/main/ios">Build from source</a>',
+     "iOS 17 or later. Build it with Xcode."),
 ]
 
 # Platform notes reused across pages.
@@ -818,13 +818,13 @@ def page(p, by_slug):
     get = "\n".join(f"      <div><h3>{e(n)}</h3><p>{e(note)}</p>{btn or ''}</div>" for n, btn, note in GET)
     related = "\n".join(f'      <li><a href="{r}.html">{e(by_slug[r]["h1"])}</a></li>' for r in p["related"])
     return f"""<!doctype html>
-<html lang="en">
+<html lang="en" class="halloween">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(p['title'])}</title>
 <meta name="description" content="{e(p['description'])}">
-<link rel="canonical" href="{url}">
+<link rel="canonical" href="{CANONICAL}/{p['slug']}.html">
 <meta property="og:title" content="{e(p['title'])}">
 <meta property="og:description" content="{e(p['description'])}">
 <meta property="og:url" content="{url}">
@@ -842,6 +842,7 @@ def page(p, by_slug):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/halloween.css">
 {ld(app)}
 {ld(howto)}
 {ld(faq)}
@@ -890,7 +891,7 @@ def page(p, by_slug):
     <a href="privacy.html">Privacy</a>
     <a href="support.html">Support</a>
     <a href="sponsor.html">Sponsor</a>
-    <a href="https://github.com/geetxnshgoyal/morph">Source on GitHub</a>
+    <a href="https://github.com/geetxnshgoyal/spooky-morph">Source on GitHub</a>
   </footer>
 </div>
 </body>

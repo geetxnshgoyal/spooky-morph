@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="halloween">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,14 +7,14 @@
 <meta name="description" content="Free file converter: HEIC to JPG, JPG to PDF, MP4 to MP3, PNG to SVG, MOV to MP4, or compress a photo to 200 KB. Works offline; files never leave your device.">
 <meta property="og:title" content="Morph: Free File Converter for Mac, Windows, iPhone and Android">
 <meta property="og:description" content="Drag a file, tap a key, drop it on the wheel. Free, local file conversion for Mac, Windows, iPhone and Android.">
-<meta property="og:image" content="https://morph.geetanshgoyal.in/images/og-card.png">
+<meta property="og:image" content="https://spooky-morph.vercel.app/images/og-card.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Morph's convert wheel beside the words: Convert any file without uploading it.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Morph">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:url" content="https://morph.geetanshgoyal.in/">
+<meta property="og:url" content="https://spooky-morph.vercel.app/">
 <link rel="canonical" href="https://morph.geetanshgoyal.in/">
 <meta name="theme-color" content="#0B6E69">
 <script type="application/ld+json">
@@ -24,8 +24,8 @@
   "name": "Morph",
   "alternateName": "Morph: File Converter",
   "description": "Free file converter: HEIC to JPG, JPG to PDF, MP4 to MP3, PNG to SVG, MOV to MP4, or compress a photo to 200 KB. Works offline; files never leave your device.",
-  "url": "https://morph.geetanshgoyal.in/",
-  "image": "https://morph.geetanshgoyal.in/images/og-card.png",
+  "url": "https://spooky-morph.vercel.app/",
+  "image": "https://spooky-morph.vercel.app/images/og-card.png",
   "applicationCategory": "UtilitiesApplication",
   "operatingSystem": "macOS 14 or later, Windows 10 or later, iOS 17 or later, Android 10 or later",
   "downloadUrl": [
@@ -50,7 +50,7 @@
     "name": "Geetansh Goyal"
   },
   "sameAs": [
-    "https://github.com/geetxnshgoyal/morph",
+    "https://github.com/geetxnshgoyal/spooky-morph",
     "https://apps.microsoft.com/detail/9PHWJVRC85DW"
   ]
 }
@@ -297,8 +297,10 @@
     .petal .face { transition: none; }
   }
 </style>
+<link rel="stylesheet" href="assets/css/halloween.css">
 </head>
 <body>
+<div class="web web-page" data-web="230" aria-hidden="true"></div>
 
 <div class="wrap">
   <header class="bar">
@@ -319,6 +321,7 @@
     <div class="hero">
       <div class="hero-top">
         <div>
+          <p class="eyebrow">Halloween hackathon edition</p>
           <h1>Drag a file, tap a key, drop it on the wheel.</h1>
         </div>
         <div>
@@ -326,8 +329,8 @@
           <div class="cta">
             <a class="button primary" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download for Mac</a>
             <a class="button quiet" href="https://apps.microsoft.com/detail/9PHWJVRC85DW">Windows</a>
-            <a class="button quiet" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">iPhone</a>
-            <a class="button quiet" href="android.html">Android</a>
+            <a class="button quiet" href="https://github.com/geetxnshgoyal/spooky-morph/tree/main/ios">iPhone</a>
+            <a class="button quiet" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.apk">Android</a>
           </div>
           <p class="fineprint">macOS 14 or later, Windows 10 &amp; 11, iOS 17+, Android 10+. Free and open source.</p>
         </div>
@@ -342,6 +345,7 @@
           </span>
         </div>
         <div class="desk">
+          <div class="web web-desk" data-web="120" aria-hidden="true"></div>
           <div class="explorer">
             <div class="explorer-bar">
               <span class="traffic" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -408,6 +412,7 @@
         <li><kbd>Alt</kbd><span><strong>Actions</strong> share, copy, move, or open Terminal there.</span></li>
       </ul>
       <p class="lead" style="margin-top:1.6rem">Ctrl+Shift opens Recipes. Morph also sits in the taskbar corner, where you can drop files on its panel and undo any job, and it adds Open in Morph to File Explorer's right-click menu.</p>
+      <p class="tint-note">Screenshots tinted for Halloween. The Pumpkin color itself is in the Mac app.</p>
     </div>
   </div>
 </section>
@@ -434,8 +439,9 @@
       </ul>
       <p class="siri">"Remove location from photos with Morph."</p>
       <p class="lead" style="margin-top:.6rem">Works with Siri, Spotlight and the Action button. Press and hold the app icon to convert photos straight away.</p>
+      <p class="tint-note">Screenshots tinted for Halloween. The Pumpkin color itself is in the Mac app.</p>
       <div style="margin-top: 1.4rem;">
-        <a class="button primary" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Join the iOS TestFlight Beta</a>
+        <a class="button primary" href="https://github.com/geetxnshgoyal/spooky-morph/tree/main/ios">Build the iOS app</a>
       </div>
     </div>
   </div>
@@ -575,30 +581,27 @@
         <p>Menu bar app with the drag wheel and the <code>morph</code> command-line tool. macOS 14 or later.</p>
         <div style="display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem;">
           <a class="button" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.dmg">Download DMG</a>
-          <a class="button quiet" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Mac App Store beta (TestFlight)</a>
         </div>
-        <p class="fine" style="margin-top:.7rem; opacity:.92; line-height: 1.45;"><strong>Early preview:</strong> Morph is new and still has bugs and rough edges, most of all in the TestFlight betas. If something breaks or crashes, please <a href="https://github.com/geetxnshgoyal/morph/issues" style="text-decoration: underline; color: inherit;" target="_blank" rel="noopener">tell us on GitHub</a>.</p>
+        <p class="fine" style="margin-top:.7rem; opacity:.92; line-height: 1.45;"><strong>Want Pumpkin?</strong> This download is Morph 1.0.0, from before the Pumpkin color. To get it, <a href="https://github.com/geetxnshgoyal/spooky-morph#building-from-source" style="text-decoration: underline; color: inherit;">build the Mac app from source</a>.</p>
       </div>
       <div class="platform">
         <h3>Windows</h3>
-        <p>The same drag wheel, plus a tray panel and Open in Morph in File Explorer. Windows 10 (1809) or later and Windows 11, on x64 and Arm. This first build is a beta that hasn't been tried on many PCs yet.</p>
+        <p>The same drag wheel, plus a tray panel and Open in Morph in File Explorer. Windows 10 (1809) or later and Windows 11, on x64 and Arm.</p>
         <a class="button quiet" href="https://apps.microsoft.com/detail/9PHWJVRC85DW">Get it from the Microsoft Store</a>
         <p class="fine">Or download the installer for <a href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-x64-setup.exe">x64</a> or <a href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.1-arm64-setup.exe">Arm</a>. It isn't code-signed yet: if SmartScreen warns, click More info, then Run anyway.</p>
       </div>
       <div class="platform">
         <h3>Android</h3>
-        <p>In testing on Google Play, out for everyone around 11 November 2026. Share files to Morph from any app. Android 10 or later.</p>
-        <a class="button quiet" href="android.html">Join the Play Store beta</a>
-        <p class="fine">Or <a href="https://github.com/geetxnshgoyal/morph/releases/latest">download the APK</a> from GitHub.</p>
+        <p>Share files to Morph from any app. Android 10 or later.</p>
+        <a class="button quiet" href="https://github.com/geetxnshgoyal/morph/releases/download/v1.0.0/Morph-1.0.0.apk">Download the APK</a>
       </div>
       <div class="platform">
         <h3>iPhone and iPad</h3>
         <p>Convert, compress and strip metadata from photos, videos and files right on iOS. iOS 17 or later.</p>
         <div style="display:flex; flex-wrap:wrap; gap:.6rem; margin-top:.4rem;">
-          <a class="button primary" href="https://testflight.apple.com/join/6fFuMydz" target="_blank" rel="noopener">Join TestFlight Beta</a>
-          <a class="button quiet" href="https://github.com/geetxnshgoyal/morph/tree/main/ios" target="_blank" rel="noopener">Build from source</a>
+          <a class="button primary" href="https://github.com/geetxnshgoyal/spooky-morph/tree/main/ios" target="_blank" rel="noopener">Build from source</a>
         </div>
-        <p class="fine" style="margin-top:.7rem;">Available directly via Apple TestFlight. You can also build it with Xcode from the source code.</p>
+        <p class="fine" style="margin-top:.7rem;">Build it with Xcode from the source code.</p>
       </div>
     </div>
 <pre><span class="c"># The command-line tool ships inside the Mac app.</span>
@@ -616,7 +619,7 @@ morph watch ~/Downloads tool.strip-metadata</pre>
       <a href="privacy.html">Privacy</a>
       <a href="support.html">Support</a>
       <a href="sponsor.html">Sponsor</a>
-      <a href="https://github.com/geetxnshgoyal/morph">Source on GitHub</a>
+      <a href="https://github.com/geetxnshgoyal/spooky-morph">Source on GitHub</a>
     </nav>
   </footer>
 </div>
